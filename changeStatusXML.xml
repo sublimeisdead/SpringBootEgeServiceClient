@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<eventObject:eventServiceRequest xmlns:eventObject="http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0" xmlns="http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0"><eventObject:orderId>909987847</eventObject:orderId>
+    <eventObject:eventDate>2018-11-27T15:31:13.792+03:00</eventObject:eventDate>
+    <eventObject:event>
+        <eventObject:orderStatusEvent>
+            <eventObject:statusCode>
+                <eventObject:techCode>2</eventObject:techCode>
+            </eventObject:statusCode>
+            <eventObject:cancelAllowed>false</eventObject:cancelAllowed>
+        </eventObject:orderStatusEvent>
+    </eventObject:event>
+</eventObject:eventServiceRequest>
