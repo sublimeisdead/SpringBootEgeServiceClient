@@ -1,0 +1,5 @@
+2018-12-21 14:03:13 ERROR StatusListener:217 - org.json.JSONException: JSONObject["current_state"] is not a number.
+2018-12-21 14:44:01 ERROR StatusListener:217 - org.json.JSONException: JSONObject["current_state"] is not a number.
+2018-12-21 14:45:00 ERROR StatusListener:217 - org.json.JSONException: JSONObject["current_state"] is not a number.
+2018-12-21 14:46:08 ERROR StatusListener:217 - org.json.JSONException: JSONObject["current_state"] is not a number.
+2018-12-21 14:54:39 ERROR StatusListener:217 - org.json.JSONException: JSONObject["current_state"] is not a number.

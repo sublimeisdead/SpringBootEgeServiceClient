@@ -29,19 +29,38 @@ static Properties properties;
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(Application.class, args);
+		Thread thread1= new Thread(() -> {
+			try {
+				StatusListener.listen();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+
+		Thread thread2= new Thread(() -> {
+
+				SpringApplication.run(Application.class, args);
+
+		});
+
+		thread1.start();
+		thread2.start();
+
+
 
 	}
 
 	@Bean
-	CommandLineRunner lookup (Client quoteClient){
+	CommandLineRunner lookup (Client client){
 
 		return args -> {
 	try {
-		SMEV3Provider SMEV3Provider =new SMEV3Provider(quoteClient);
+
+		SMEV3Provider SMEV3Provider =new SMEV3Provider(client);
+
 		SMEV3Provider.sign();
 
-		StatusListener.listen();
+
 	}catch (Exception e){
 		logger.error(e);
 		e.printStackTrace();
