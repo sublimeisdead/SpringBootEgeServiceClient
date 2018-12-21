@@ -80,7 +80,7 @@ public class SMEV3Provider {
 				JAXBElement<NewResponseType> response;
 
 				if (context.getData() != null || !String.valueOf(context.getId()).equalsIgnoreCase("")) {
-                messager.sendAck(context.getId(),true);
+
                     element = context.getData();
 
                     //if (isTestMessage(element)) {
@@ -93,6 +93,7 @@ public class SMEV3Provider {
                             File test = new File(pathToTestResponses+"EgeResultResponseTest.xml");
                             FileInputStream fileInputStream = new FileInputStream(test);
                             Document doc = db.parse(fileInputStream);
+                            messager.sendAck(context.getId(),true);
                             SMEV3SendingContext sendingContext = messager.sendResponse(doc.getDocumentElement(), context.getTo());
                             logger.info("Отправлено GetEgeResultResponse");
                             System.out.println("Отправлено GetEgeResultResponse");
@@ -100,6 +101,7 @@ public class SMEV3Provider {
                             File test = new File(pathToTestResponses+"AppealResponseTest.xml");
                             FileInputStream fileInputStream = new FileInputStream(test);
                             Document doc = db.parse(fileInputStream);
+                            messager.sendAck(context.getId(),true);
                             SMEV3SendingContext sendingContext = messager.sendResponse(doc.getDocumentElement(), context.getTo());
                             logger.info("Отправлено AppealResponse");
                             System.out.println("Отправлено AppealResponse");
@@ -107,6 +109,7 @@ public class SMEV3Provider {
                             File test = new File(pathToTestResponses+"AppealCancelResponseTest.xml");
                             FileInputStream fileInputStream = new FileInputStream(test);
                             Document doc = db.parse(fileInputStream);
+                            messager.sendAck(context.getId(),true);
                             SMEV3SendingContext sendingContext = messager.sendResponse(doc.getDocumentElement(), context.getTo());
                             logger.info("Отправлено AppealCancelResponse");
                             System.out.println("Отправлено AppealCancelResponse");
@@ -117,6 +120,7 @@ public class SMEV3Provider {
                                 File test = new File(pathToTestResponses+"SubjectResponseTest.xml");
                                 FileInputStream fileInputStream = new FileInputStream(test);
                                 Document doc = db.parse(fileInputStream);
+                                messager.sendAck(context.getId(),true);
                                 SMEV3SendingContext sendingContext = messager.sendResponse(doc.getDocumentElement(), context.getTo());
                                 logger.info("Отправлено SubjectResponse");
                                 System.out.println("Отправлено SubjectResponse");
@@ -125,6 +129,7 @@ public class SMEV3Provider {
                                 File test = new File(pathToTestResponses+"EduOrganizationTest.xml");
                                 FileInputStream fileInputStream = new FileInputStream(test);
                                 Document doc = db.parse(fileInputStream);
+                                messager.sendAck(context.getId(),true);
                                 SMEV3SendingContext sendingContext = messager.sendResponse(doc.getDocumentElement(), context.getTo());
                                 logger.info("Отправлено EduOrganizationResponse");
                                 System.out.println("Отправлено EduOrganizationResponse");
@@ -132,6 +137,7 @@ public class SMEV3Provider {
                                 File test = new File(pathToTestResponses+"ExaminationPointTest.xml");
                                 FileInputStream fileInputStream = new FileInputStream(test);
                                 Document doc = db.parse(fileInputStream);
+                                messager.sendAck(context.getId(),true);
                                 SMEV3SendingContext sendingContext = messager.sendResponse(doc.getDocumentElement(), context.getTo());
                                 logger.info("Отправлено ExaminationPointResponse");
                                 System.out.println("Отправлено ExaminationPointResponse");
@@ -154,6 +160,7 @@ public class SMEV3Provider {
 						DocumentBuilder db = dbf.newDocumentBuilder();
 
 						Document doc = db.parse(new InputSource(new StringReader(jaxbObjectToXML(response))));
+                        messager.sendAck(context.getId(),true);
 						SMEV3SendingContext sendingContext = messager.sendResponse(doc.getDocumentElement(), context.getTo());
 						sendingContext.getStatusVer3();
 						logger.info(jaxbObjectToXML(response));
