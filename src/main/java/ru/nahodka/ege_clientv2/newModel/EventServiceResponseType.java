@@ -1,5 +1,5 @@
 
-package ru.nahodka.ege_clientv2.model;
+package ru.nahodka.ege_clientv2.newModel;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,17 +8,21 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Response complex type.
+ * 
+ *                 Ответ в случае успешной обработки события
+ *             
+ * 
+ * <p>Java class for EventServiceResponseType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Response">
+ * &lt;complexType name="EventServiceResponseType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="code" type="{http://www.w3.org/2001/XMLSchema}long"/>
- *         &lt;element name="message" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="code" type="{http://www.w3.org/2001/XMLSchema}byte"/>
+ *         &lt;element name="message" type="{http://epgu.gosuslugi.ru/lk/order/event/3.1.1}string-256"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,22 +32,22 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Response", namespace = "http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0", propOrder = {
+@XmlType(name = "EventServiceResponseType", namespace = "http://epgu.gosuslugi.ru/lk/order/event/3.1.1", propOrder = {
     "code",
     "message"
 })
-public class Response {
+public class EventServiceResponseType {
 
-    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0")
-    protected long code;
-    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0", required = true)
+    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/3.1.1")
+    protected byte code;
+    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/3.1.1", required = true)
     protected String message;
 
     /**
      * Gets the value of the code property.
      * 
      */
-    public long getCode() {
+    public byte getCode() {
         return code;
     }
 
@@ -51,7 +55,7 @@ public class Response {
      * Sets the value of the code property.
      * 
      */
-    public void setCode(long value) {
+    public void setCode(byte value) {
         this.code = value;
     }
 

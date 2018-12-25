@@ -37,11 +37,7 @@ static Properties properties;
 			}
 		});
 
-		Thread thread2= new Thread(() -> {
-
-				SpringApplication.run(Application.class, args);
-
-		});
+		Thread thread2= new Thread(() -> SpringApplication.run(Application.class, args));
 
 		thread1.start();
 		thread2.start();

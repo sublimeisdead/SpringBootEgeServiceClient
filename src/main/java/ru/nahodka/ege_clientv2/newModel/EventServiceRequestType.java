@@ -1,8 +1,9 @@
 
-package ru.nahodka.ege_clientv2.model;
+package ru.nahodka.ege_clientv2.newModel;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
@@ -10,31 +11,26 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Java class for EventObject complex type.
+ * 
+ *                 Запрос передачи события по заявлению в ЛК ЕПГУ
+ *             
+ * 
+ * <p>Java class for EventServiceRequestType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="EventObject">
+ * &lt;complexType name="EventServiceRequestType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="orderId" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *         &lt;element name="eventDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
- *         &lt;element name="eventComment" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="eventAuthor" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="event">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 &lt;choice>
- *                   &lt;element name="orderStatusEvent" type="{http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0}OrderStatusEvent"/>
- *                 &lt;/choice>
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
+ *         &lt;element name="eventComment" type="{http://epgu.gosuslugi.ru/lk/order/event/3.1.1}string-2048" minOccurs="0"/>
+ *         &lt;element name="eventAuthor" type="{http://epgu.gosuslugi.ru/lk/order/event/3.1.1}string-256" minOccurs="0"/>
+ *         &lt;element name="event" type="{http://epgu.gosuslugi.ru/lk/order/event/3.1.1}EventType"/>
  *       &lt;/sequence>
+ *       &lt;attribute name="env" use="required" type="{http://epgu.gosuslugi.ru/lk/order/event/3.1.1}EnvType" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -43,26 +39,28 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EventObject", namespace = "http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0", propOrder = {
+@XmlType(name = "EventServiceRequestType", namespace = "http://epgu.gosuslugi.ru/lk/order/event/3.1.1", propOrder = {
     "orderId",
     "eventDate",
     "eventComment",
     "eventAuthor",
     "event"
 })
-public class EventObject {
+public class EventServiceRequestType {
 
-    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0")
+    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/3.1.1")
     protected long orderId;
-    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0")
+    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/3.1.1")
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar eventDate;
-    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0")
+    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/3.1.1")
     protected String eventComment;
-    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0")
+    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/3.1.1")
     protected String eventAuthor;
-    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0", required = true)
-    protected EventObject.Event event;
+    @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/3.1.1", required = true)
+    protected EventType event;
+    @XmlAttribute(name = "env", required = true)
+    protected EnvType env;
 
     /**
      * Gets the value of the orderId property.
@@ -157,10 +155,10 @@ public class EventObject {
      * 
      * @return
      *     possible object is
-     *     {@link EventObject.Event }
+     *     {@link EventType }
      *     
      */
-    public EventObject.Event getEvent() {
+    public EventType getEvent() {
         return event;
     }
 
@@ -169,66 +167,35 @@ public class EventObject {
      * 
      * @param value
      *     allowed object is
-     *     {@link EventObject.Event }
+     *     {@link EventType }
      *     
      */
-    public void setEvent(EventObject.Event value) {
+    public void setEvent(EventType value) {
         this.event = value;
     }
 
+    /**
+     * Gets the value of the env property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link EnvType }
+     *     
+     */
+    public EnvType getEnv() {
+        return env;
+    }
 
     /**
-     * <p>Java class for anonymous complex type.
+     * Sets the value of the env property.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType>
-     *   &lt;complexContent>
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *       &lt;choice>
-     *         &lt;element name="orderStatusEvent" type="{http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0}OrderStatusEvent"/>
-     *       &lt;/choice>
-     *     &lt;/restriction>
-     *   &lt;/complexContent>
-     * &lt;/complexType>
-     * </pre>
-     * 
-     * 
+     * @param value
+     *     allowed object is
+     *     {@link EnvType }
+     *     
      */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "orderStatusEvent"
-    })
-    public static class Event {
-
-        @XmlElement(namespace = "http://epgu.gosuslugi.ru/lk/order/event/PROD/3.1.0")
-        protected OrderStatusEvent orderStatusEvent;
-
-        /**
-         * Gets the value of the orderStatusEvent property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link OrderStatusEvent }
-         *     
-         */
-        public OrderStatusEvent getOrderStatusEvent() {
-            return orderStatusEvent;
-        }
-
-        /**
-         * Sets the value of the orderStatusEvent property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link OrderStatusEvent }
-         *     
-         */
-        public void setOrderStatusEvent(OrderStatusEvent value) {
-            this.orderStatusEvent = value;
-        }
-
+    public void setEnv(EnvType value) {
+        this.env = value;
     }
 
 }
