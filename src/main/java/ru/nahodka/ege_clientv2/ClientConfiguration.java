@@ -23,7 +23,7 @@ public class ClientConfiguration extends WsConfigurerAdapter {
 	}
 
 	@Bean
-	public Client countryClient(Jaxb2Marshaller marshaller) throws IOException {
+	public Client smevClient(Jaxb2Marshaller marshaller) throws IOException {
 		Client client = new Client();
 		client.setDefaultUri(PropertiesLoader.getProperties().getProperty("uri.soap"));
 		client.setMarshaller(marshaller);
