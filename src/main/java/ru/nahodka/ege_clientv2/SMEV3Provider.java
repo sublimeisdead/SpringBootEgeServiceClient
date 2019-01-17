@@ -182,8 +182,8 @@ public class SMEV3Provider {
 
                 }
         }catch (NullPointerException e){
-        //    logger.error(e+" Нет запросов в СМЭВ");
-            System.out.println("Нет запросов в СМЭВ");
+            logger.info(e+" Нет запросов в СМЭВ");
+        //    System.out.println("Нет запросов в СМЭВ");
         }
     }
 
