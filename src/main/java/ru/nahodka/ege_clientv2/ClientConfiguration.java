@@ -3,6 +3,7 @@ package ru.nahodka.ege_clientv2;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.ws.client.support.interceptor.ClientInterceptor;
@@ -13,6 +14,7 @@ import java.io.IOException;
 
 @Configuration
 @EnableScheduling
+@PropertySource("classpath:config.properties")
 public class ClientConfiguration extends WsConfigurerAdapter {
 
 	@Bean
